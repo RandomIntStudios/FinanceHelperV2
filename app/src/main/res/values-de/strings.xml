@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinanceHelperV2</string>
+
+    //drawer menu
+    <string name="navigation">Navigation</string>
+    <string name="budget">Budget</string>
+    <string name="calendar">Kalender</string>
+    <string name="options">Optionen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="info">Info</string>
+    <string name="open_drawer">Navigation öffnen</string>
+    <string name="close_drawer">Navigation schließen</string>
+
+    <string name="remaining_budget">Verbleibendes Budget:</string>
+
+    //dialog new item
+    <string name="money_received">Geld erhalten</string>
+    <string name="money_spent">Geld ausgegeben</string>
+
+    <string name="total">TOTAL:</string>
+</resources>
