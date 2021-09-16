@@ -12,10 +12,29 @@
     <string name="close_drawer">Close navigation</string>
 
     <string name="remaining_budget">Remaining budget:</string>
+    <string name="currency_sign_value">$VALUE $</string>
+    <string name="total">TOTAL:</string>
 
-    //dialog new item
+    //dialog new update
     <string name="money_received">Money received</string>
     <string name="money_spent">Money spent</string>
+    <string name="count">Amount</string>
+    <string name="price_header">Price for each   </string>
+    <string name="filler">times</string>
+    <string name="price_hint">price</string>
+    <string name="currency_sign">$</string>
+    <string name="name">Name</string>
+    <string name="positive_option_add_update">Save</string>
+    <string name="negative_option_add_update">Dismiss</string>
+    <string name="toast_discarded">Discarded!</string>
+    <string name="toast_saved">Saved!</string>
+    <string name="toast_hint_input">Please fill out all fields</string>
+    <string name="price_info">The total amount will be calculated by the app</string>
 
-    <string name="total">TOTAL:</string>
+
+
+    //single item layout
+    <string name="multiply">$COUNT times</string>
+    <string name="single_price">at $PRICE$ each</string>
+    <string name="total_price">$TOTAL$</string>
 </resources>

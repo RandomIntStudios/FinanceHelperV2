@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+
+    <EditText
+        android:id="@+id/edt_name_input_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/edt_count_input_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="1"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/txt_count_header_dialog" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_count_header_dialog"
+        style="@style/Theme.FinanceHelperV2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/count"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_price_header_dialog"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/txt_price_header_dialog" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_price_header_dialog"
+        style="@style/Theme.FinanceHelperV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/ic_baseline_info_24"
+        android:text="@string/price_header"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name_input_dialog" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_filler_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        style="@style/Theme.FinanceHelperV2"
+        android:text="@string/filler"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_count_input_dialog"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/edt_count_input_dialog" />
+
+    <EditText
+        android:id="@+id/edt_price_input_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:ems="10"
+        android:hint="@string/price_hint"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/txt_currency_sign"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/txt_price_header_dialog" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_currency_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currency_sign"
+        android:textSize="26sp"
+        style="@style/Theme.FinanceHelperV2"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_count_input_dialog"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/edt_count_input_dialog" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        android:weightSum="100"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbt_money_spent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:paddingBottom="5dp"
+            android:text="@string/money_spent" />
+
+        <RadioButton
+            android:id="@+id/rbt_money_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:paddingBottom="2dp"
+            android:text="@string/money_received" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

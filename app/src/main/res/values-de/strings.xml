@@ -13,10 +13,29 @@
     <string name="close_drawer">Navigation schließen</string>
 
     <string name="remaining_budget">Verbleibendes Budget:</string>
+    <string name="currency_sign_value">$VALUE €</string>
+    <string name="total">TOTAL:</string>
 
     //dialog new item
     <string name="money_received">Geld erhalten</string>
     <string name="money_spent">Geld ausgegeben</string>
+    <string name="count">Anzahl</string>
+    <string name="price_header">Preis pro Stück   </string>
+    <string name="filler">mal</string>
+    <string name="price_hint">Preis</string>
+    <string name="currency_sign">€</string>
+    <string name="name">Name</string>
+    <string name="positive_option_add_update">Speichern</string>
+    <string name="negative_option_add_update">Verwerfen</string>
+    <string name="toast_discarded">Verworfen!</string>
+    <string name="toast_saved">Gespeichert!</string>
+    <string name="toast_hint_input">Bitte füllen Sie alle Felder aus</string>
+    <string name="price_info">Der Gesamtpreis wird von der App berechnet</string>
 
-    <string name="total">TOTAL:</string>
+
+
+    //single item layout
+    <string name="multiply">$COUNT mal</string>
+    <string name="single_price">zu je $PRICE€</string>
+    <string name="total_price">$TOTAL€</string>
 </resources>

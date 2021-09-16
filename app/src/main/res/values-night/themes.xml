@@ -16,4 +16,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Widget.financehelperv2.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:foregroundTint">@color/dark_pink</item>
+        <item name="elevation">0dp</item>
+        <item name="borderWidth">3dp</item>
+    </style>
+
+    <style name="financehelper_inc_red_button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:tint">@color/black</item>
+    </style>
 </resources>

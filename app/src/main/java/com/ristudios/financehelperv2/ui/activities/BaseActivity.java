@@ -40,7 +40,6 @@ public class BaseActivity extends AppCompatActivity implements DrawerLayout.Draw
 
     private void initToolbar() {
         toolbar = findViewById(R.id.custom_toolbar);
-        toolbar.bringToFront();
         setSupportActionBar(toolbar);
     }
 
