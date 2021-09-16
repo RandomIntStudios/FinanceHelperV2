@@ -9,13 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceHelperV2">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activities.InfoActivity"></activity>
+        <activity android:name=".ui.activities.SettingsActivity" />
+        <activity android:name=".ui.activities.CalendarActivity" />
+        <activity android:name=".ui.activities.BudgetActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activities.BaseActivity" />
     </application>
 
 </manifest>
