@@ -50,7 +50,7 @@ public class BaseActivity extends AppCompatActivity implements DrawerLayout.Draw
         drawerLayout.addDrawerListener(this);
     }
 
-    private void initToggle(){
+    private void initToggle() {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerToggle.syncState();
@@ -80,19 +80,28 @@ public class BaseActivity extends AppCompatActivity implements DrawerLayout.Draw
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         String classname = this.getClass().getSimpleName();
         switch (item.getItemId()) {
-            case R.id.nav_budget: drawerLayout.closeDrawer(GravityCompat.START, true);
-                    launchActivity(classname, BudgetActivity.class, true);
+            case R.id.nav_budget:
+                drawerLayout.closeDrawer(GravityCompat.START, true);
+                launchActivity(classname, BudgetActivity.class, true);
                 break;
-            case R.id.nav_calendar: drawerLayout.closeDrawer(GravityCompat.START, true);
+            case R.id.nav_calendar:
+                drawerLayout.closeDrawer(GravityCompat.START, true);
                 launchActivity(classname, CalendarActivity.class, false);
                 break;
-            case R.id.nav_settings: drawerLayout.closeDrawer(GravityCompat.START, true);
+            case R.id.nav_settings:
+                drawerLayout.closeDrawer(GravityCompat.START, true);
                 launchActivity(classname, SettingsActivity.class, false);
                 break;
-            case R.id.nav_info: drawerLayout.closeDrawer(GravityCompat.START, true);
+            case R.id.nav_info:
+                drawerLayout.closeDrawer(GravityCompat.START, true);
                 launchActivity(classname, InfoActivity.class, false);
                 break;
-            default: return false;
+            case R.id.nav_monthly_overview:
+                drawerLayout.closeDrawer(GravityCompat.START, true);
+                launchActivity(classname, MonthlyOverviewActivity.class, false);
+                break;
+            default:
+                return false;
         }
         return false;
     }
@@ -102,13 +111,11 @@ public class BaseActivity extends AppCompatActivity implements DrawerLayout.Draw
             if (!backToMain) {
                 Intent intent = new Intent(this, activity);
                 startActivity(intent);
-            }
-            else {
+            } else {
                 finish();
             }
         }
-        if (!classname.equals("BudgetActivity") && !classname.equals(activity.getSimpleName()))
-        {
+        if (!classname.equals("BudgetActivity") && !classname.equals(activity.getSimpleName())) {
             finish();
         }
     }

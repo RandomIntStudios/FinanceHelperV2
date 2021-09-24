@@ -8,6 +8,7 @@
     <string name="options">Options</string>
     <string name="settings">Settings</string>
     <string name="info">Info</string>
+    <string name="monthly_overview">Monthly overview</string>
     <string name="open_drawer">Open navigation</string>
     <string name="close_drawer">Close navigation</string>
 
@@ -31,7 +32,60 @@
     <string name="toast_hint_input">Please fill out all fields</string>
     <string name="price_info">The total amount will be calculated by the app</string>
 
+    //Notifications
 
+    <string name="reset_notification_title">Your budget has been reset!</string>
+    <string name="reset_notification_message">Tap here to check the monthly overview and see what you spent money on last month</string>
+    <string name="notification_channel_main">This is the main channel for Notifications</string>
+    <string name="notification_channel_main_description">All Notifications are sent through this channel</string>
+
+
+    //Calendar
+    <string-array name="months">
+        <item>JANUARY</item>
+        <item>FEBRUARY</item>
+        <item>MARCH</item>
+        <item>APRIL</item>
+        <item>MAY</item>
+        <item>JUNE</item>
+        <item>JULY</item>
+        <item>AUGUST</item>
+        <item>SEPTEMBER</item>
+        <item>OCTOBER</item>
+        <item>NOVEMBER</item>
+        <item>DECEMBER</item>
+    </string-array>
+
+    <string-array name="weekdays_short">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+    //Monthly Overview
+
+    <string name="sort_by">Sort by:</string>
+
+    <string-array name="years">
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+    </string-array>
+
+    <string-array name="sorting_methods">
+        <item>Date (ascending)</item>
+        <item>Date (descending)</item>
+        <item>Price (ascending)</item>
+        <item>Price (descending)</item>
+    </string-array>
 
     //single item layout
     <string name="multiply">$COUNT times</string>

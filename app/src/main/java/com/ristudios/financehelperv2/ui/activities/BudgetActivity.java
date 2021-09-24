@@ -1,20 +1,11 @@
 package com.ristudios.financehelperv2.ui.activities;
 
-import androidx.annotation.NonNull;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,11 +17,13 @@ import com.ristudios.financehelperv2.data.ItemManager;
 import com.ristudios.financehelperv2.ui.adapter.ItemAdapter;
 import com.ristudios.financehelperv2.ui.fragments.AddOrUpdateDialog;
 import com.ristudios.financehelperv2.ui.fragments.DeleteDialog;
+import com.ristudios.financehelperv2.utils.Alarm;
+import com.ristudios.financehelperv2.utils.NotificationHelper;
 import com.ristudios.financehelperv2.utils.Utils;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.ZoneId;
 
 public class BudgetActivity extends BaseActivity implements ItemManager.ItemManagerListener, ItemAdapter.AdapterClickListener, AddOrUpdateDialog.AddOrUpdateDialogListener, DeleteDialog.DeleteDialogListener {
 
@@ -51,11 +44,23 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         getSupportActionBar().setTitle(R.string.budget);
         initData();
         initUI();
+        setupNotifications();
         itemManager.loadItemsForCurrentDate();
+        initAlarms();
+    }
+
+    private void setupNotifications() {
+        NotificationHelper notificationHelper = new NotificationHelper(this);
+        notificationHelper.createNotificationChannel(this, getString(R.string.notification_channel_main), getString(R.string.notification_channel_main_description), NotificationHelper.MAIN_NOTIFICATION_CHANNEL);
+    }
+
+    private void initAlarms() {
+
+        Alarm alarm = new Alarm();
+        alarm.setBudgetResetForNextMonth(getApplicationContext());
     }
 
     private void initUI() {
-        iconDelete = Utils.drawableToBitmap(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_delete_sweep_24, null));
         txtDate = findViewById(R.id.txt_date);
         txtDate.setText(Utils.getLocalizedFormattedDate(LocalDate.now()));
         txtSubTotalValue = findViewById(R.id.txt_total_price);
@@ -79,6 +84,14 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
 
     private void initData() {
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if (!preferences.contains(Utils.PREFS_HAS_BEEN_LAUNCHED_KEY))
+        {
+            int y = YearMonth.now(ZoneId.systemDefault()).getYear();
+            int m = YearMonth.now(ZoneId.systemDefault()).getMonthValue();
+            preferences.edit().putInt(Utils.PREFS_FIRST_LAUNCH_YEAR_KEY, y).apply();
+            preferences.edit().putInt(Utils.PREFS_FIRST_LAUNCH_MONTH_KEY, m).apply();
+            preferences.edit().putBoolean(Utils.PREFS_HAS_BEEN_LAUNCHED_KEY, true).apply();
+        }
         itemManager = new ItemManager(getApplicationContext(), this);
         itemAdapter = new ItemAdapter(this, getApplicationContext());
         currentBudget = preferences.getFloat(Utils.PREFS_CURRENT_BUDGET_KEY, 200);

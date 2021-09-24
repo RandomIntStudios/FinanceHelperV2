@@ -9,6 +9,7 @@
     <string name="options">Optionen</string>
     <string name="settings">Einstellungen</string>
     <string name="info">Info</string>
+    <string name="monthly_overview">Monatsübersicht</string>
     <string name="open_drawer">Navigation öffnen</string>
     <string name="close_drawer">Navigation schließen</string>
 
@@ -29,10 +30,62 @@
     <string name="negative_option_add_update">Verwerfen</string>
     <string name="toast_discarded">Verworfen!</string>
     <string name="toast_saved">Gespeichert!</string>
-    <string name="toast_hint_input">Bitte füllen Sie alle Felder aus</string>
+    <string name="toast_hint_input">Korrigiere bitte alle Angaben</string>
     <string name="price_info">Der Gesamtpreis wird von der App berechnet</string>
 
+    //Notifications
 
+    <string name="reset_notification_title">Dein Budget wurde zurückgesetzt!</string>
+    <string name="reset_notification_message">Klicke hier um zur Monatsübersicht zu gelangen und nachzusehen wie viel du letzten Monat ausgegeben hast</string>
+    <string name="notification_channel_main">Hauptkanal für Benachrichtigungen</string>
+    <string name="notification_channel_main_description">Alle Benachrichtigungen werdenn über diesen Kanal verschickt</string>
+
+    //Calendar
+    <string-array name="months">
+        <item>JANUAR</item>
+        <item>FEBRUAR</item>
+        <item>MÄRZ</item>
+        <item>APRIL</item>
+        <item>MAI</item>
+        <item>JUNI</item>
+        <item>JULI</item>
+        <item>AUGUST</item>
+        <item>SEPTEMBER</item>
+        <item>OKTOBER</item>
+        <item>NOVEMBER</item>
+        <item>DEZEMBER</item>
+    </string-array>
+
+    <string-array name="weekdays_short">
+        <item>Mo</item>
+        <item>Di</item>
+        <item>Mi</item>
+        <item>Do</item>
+        <item>Fr</item>
+        <item>Sa</item>
+        <item>So</item>
+    </string-array>
+
+    //Monthly Overview
+
+    <string name="sort_by">Sortieren nach:</string>
+
+    <integer-array name="years">
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+    </integer-array>
+
+    <string-array name="sorting_methods">
+        <item>Datum (aufsteigend)</item>
+        <item>Datum (absteigend)</item>
+        <item>Preis (aufsteigend)</item>
+        <item>Preis (absteigend)</item>
+    </string-array>
 
     //single item layout
     <string name="multiply">$COUNT mal</string>
