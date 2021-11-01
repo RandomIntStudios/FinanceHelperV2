@@ -8,6 +8,7 @@
     <string name="options">Options</string>
     <string name="settings">Settings</string>
     <string name="info">Info</string>
+    <string name="monthly_overview">Monthly overview</string>
     <string name="open_drawer">Open navigation</string>
     <string name="close_drawer">Close navigation</string>
 
@@ -31,10 +32,100 @@
     <string name="toast_hint_input">Please fill out all fields</string>
     <string name="price_info">The total amount will be calculated by the app</string>
 
+    //Notifications
 
+    <string name="reset_notification_title">Your budget has been reset!</string>
+    <string name="reset_notification_message">Tap here to check the monthly overview and see what you spent money on last month</string>
+    <string name="notification_channel_main">This is the main channel for Notifications</string>
+    <string name="notification_channel_main_description">All Notifications are sent through this channel</string>
+
+
+    //Calendar
+    <string-array name="months">
+        <item>JANUARY</item>
+        <item>FEBRUARY</item>
+        <item>MARCH</item>
+        <item>APRIL</item>
+        <item>MAY</item>
+        <item>JUNE</item>
+        <item>JULY</item>
+        <item>AUGUST</item>
+        <item>SEPTEMBER</item>
+        <item>OCTOBER</item>
+        <item>NOVEMBER</item>
+        <item>DECEMBER</item>
+    </string-array>
+
+    <string-array name="weekdays_short">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+    //Monthly Overview
+
+    <string name="sort_by">Sort by:</string>
+
+    <string-array name="years">
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+    </string-array>
+
+    <string-array name="sorting_methods">
+        <item>Date (ascending)</item>
+        <item>Date (descending)</item>
+        <item>Price (ascending)</item>
+        <item>Price (descending)</item>
+    </string-array>
 
     //single item layout
     <string name="multiply">$COUNT times</string>
     <string name="single_price">at $PRICE$ each</string>
     <string name="total_price">$TOTAL$</string>
+
+    //Settings
+
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="settings_category_notifications">Notifications</string>
+    <string name="title_notification_switch">Notifications</string>
+    <string name="summary_notification_switch">You can enable or disable notifications here</string>
+    <string name="settings_category_budget">Budget</string>
+    <string name="title_max_budget_edt">Maximum budget</string>
+    <string name="summary_max_budget_edt">Enter your maximum budget here. These changes will take effect with the next budget reset, alternatively you can also reset your budget in the settings at any time</string>
+    <string name="title_reset_budget_pref">Reset budget</string>
+    <string name="summary_reset_budget_pref">Click here to reset your Budget</string>
+    <string name="settings_category_design">Design</string>
+    <string name="title_darkmode_pref">Dark Mode</string>
+    <string name="summary_darkmode_pref">Click here to change between dark and light mode</string>
+
+    <string name="dialog_reset_budget_title">Are you sure you want to reset your budget?</string>
+    <string name="dialog_reset_budget_yes">Reset</string>
+    <string name="dialog_reset_budget_no">Cancel</string>
+
+    <string name="rbn_dark">Dark Mode</string>
+    <string name="rbn_light">Light Mode</string>
+    <string name="rbn_system_default">System default</string>
+    <string name="txt_choose_design">Choose a design</string>
+
+    <string name="settings_category_data">Data</string>
+    <string name="title_delete_data_pref">Delete data</string>
+    <string name="summary_delete_data_pref">Click here to delete stored data in the database. WARNING: Once deleted the entries can not be recreated!</string>
+
+    <string name="dialog_delete_data_title">Are you sure you want to delete all data?</string>
+    <string name="dialog_delete_data_yes">Delete data</string>
+    <string name="dialog_delete_data_no">Cancel</string>
+    <string name="toast_delete_complete">Data has been deleted</string>
+
+
 </resources>

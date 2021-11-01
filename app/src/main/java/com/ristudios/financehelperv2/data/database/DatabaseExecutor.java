@@ -21,6 +21,13 @@ public class DatabaseExecutor {
         });
     }
 
+    public void databaseClear(DataLoadListener loadListener){
+        Executor e = Executors.newSingleThreadExecutor();
+        e.execute(() -> {
+            loadListener.onDataLoaded(helper.getAllItems());
+        });
+    }
+
     public void databaseUpdate(Item item){
         Executor e = Executors.newSingleThreadExecutor();
         e.execute(() -> {

@@ -9,6 +9,7 @@
     <string name="options">Optionen</string>
     <string name="settings">Einstellungen</string>
     <string name="info">Info</string>
+    <string name="monthly_overview">Monatsübersicht</string>
     <string name="open_drawer">Navigation öffnen</string>
     <string name="close_drawer">Navigation schließen</string>
 
@@ -29,13 +30,102 @@
     <string name="negative_option_add_update">Verwerfen</string>
     <string name="toast_discarded">Verworfen!</string>
     <string name="toast_saved">Gespeichert!</string>
-    <string name="toast_hint_input">Bitte füllen Sie alle Felder aus</string>
+    <string name="toast_hint_input">Korrigiere bitte alle Angaben</string>
     <string name="price_info">Der Gesamtpreis wird von der App berechnet</string>
 
+    //Notifications
 
+    <string name="reset_notification_title">Dein Budget wurde zurückgesetzt!</string>
+    <string name="reset_notification_message">Klicke hier um zur Monatsübersicht zu gelangen und nachzusehen wie viel du letzten Monat ausgegeben hast</string>
+    <string name="notification_channel_main">Hauptkanal für Benachrichtigungen</string>
+    <string name="notification_channel_main_description">Alle Benachrichtigungen werdenn über diesen Kanal verschickt</string>
+
+    //Calendar
+    <string-array name="months">
+        <item>JANUAR</item>
+        <item>FEBRUAR</item>
+        <item>MÄRZ</item>
+        <item>APRIL</item>
+        <item>MAI</item>
+        <item>JUNI</item>
+        <item>JULI</item>
+        <item>AUGUST</item>
+        <item>SEPTEMBER</item>
+        <item>OKTOBER</item>
+        <item>NOVEMBER</item>
+        <item>DEZEMBER</item>
+    </string-array>
+
+    <string-array name="weekdays_short">
+        <item>Mo</item>
+        <item>Di</item>
+        <item>Mi</item>
+        <item>Do</item>
+        <item>Fr</item>
+        <item>Sa</item>
+        <item>So</item>
+    </string-array>
+
+    //Monthly Overview
+
+    <string name="sort_by">Sortieren nach:</string>
+
+    <string-array name="years">
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+    </string-array>
+
+    <string-array name="sorting_methods">
+        <item>Datum (aufsteigend)</item>
+        <item>Datum (absteigend)</item>
+        <item>Preis (aufsteigend)</item>
+        <item>Preis (absteigend)</item>
+    </string-array>
 
     //single item layout
     <string name="multiply">$COUNT mal</string>
     <string name="single_price">zu je $PRICE€</string>
     <string name="total_price">$TOTAL€</string>
+
+    //Settings
+
+    <string name="save">Speichern</string>
+    <string name="cancel">Abbrechen</string>
+
+    <string name="settings_category_notifications">Benachrichtigungen</string>
+    <string name="title_notification_switch">Benachrichtigungen</string>
+    <string name="summary_notification_switch">Hier kannst du Benachrichtigungen ein- oder ausschalten</string>
+    <string name="settings_category_budget">Budget</string>
+    <string name="title_max_budget_edt">Maximales Budget</string>
+    <string name="summary_max_budget_edt">Klicke hier um dein maximales Budget zu ändern. Diese Änderung wird wirksam, sobald das nächste mal das Budget zurückgesetzt wird. Alternativ kannst du das Budget auch direkt in den Einstellungen zurücksetzen.</string>
+    <string name="title_reset_budget_pref">Budget zurücksetzen</string>
+    <string name="summary_reset_budget_pref">Klicke hier um dein Budget zurückzusetzen</string>
+    <string name="settings_category_design">Design</string>
+    <string name="title_darkmode_pref">Dunkler Modus</string>
+    <string name="summary_darkmode_pref">Klicke hier um zwischen dunklem und hellem Design zu wechseln</string>
+
+    <string name="dialog_reset_budget_title">Soll das Budget wirklich zurückgesetzt werden?</string>
+    <string name="dialog_reset_budget_yes">Ja, zurücksetzen</string>
+    <string name="dialog_reset_budget_no">Abbrechen</string>
+
+    <string name="rbn_dark">Dunkles Design</string>
+    <string name="rbn_light">Helles Design</string>
+    <string name="rbn_system_default">Systemstandard</string>
+    <string name="txt_choose_design">Wähle ein Design</string>
+
+    <string name="settings_category_data">Daten</string>
+    <string name="title_delete_data_pref">Daten löschen</string>
+    <string name="summary_delete_data_pref">Hier klicken um die in der Datenbank gespeicherten Einträge zu löschen. WARNUNG: gelöschte Einträge können nicht widerhergestellt werden!</string>
+
+    <string name="dialog_delete_data_title">Sollen die Daten wirklich gelöscht werden?</string>
+    <string name="dialog_delete_data_yes">Ja, Daten löschen</string>
+    <string name="dialog_delete_data_no">Abbrechen</string>
+    <string name="toast_delete_complete">Daten wurden gelöscht</string>
+
+
 </resources>
