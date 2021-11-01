@@ -23,8 +23,7 @@
         </activity>
         <receiver android:name=".utils.Alarm">
                 <intent-filter>
-                    <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                    <action android:name="com.ristudios.financehelpeerv2.BUDGET_RESET"/>
+                    <action android:name="com.ristudios.financehelperv2.BUDGET_RESET"/>
                     <action android:name="android.intent.action.BOOT_COMPLETED"/>
                     <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
                 </intent-filter>

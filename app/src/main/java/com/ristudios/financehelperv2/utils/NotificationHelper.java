@@ -27,6 +27,7 @@ public class NotificationHelper {
                 .setSmallIcon(icon)
                 .setContentTitle(title)
                 .setContentText(message)
+                .setStyle(new NotificationCompat.BigTextStyle())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         if (autoCancel){
             builder.setAutoCancel(true);

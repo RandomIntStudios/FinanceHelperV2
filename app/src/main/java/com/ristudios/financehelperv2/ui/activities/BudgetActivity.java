@@ -1,11 +1,13 @@
 package com.ristudios.financehelperv2.ui.activities;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +40,7 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         setContentView(R.layout.activity_budget);
         super.onCreate(savedInstanceState);
         initBurgerMenu();
@@ -47,6 +50,7 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         setupNotifications();
         itemManager.loadItemsForCurrentDate();
         initAlarms();
+        AppCompatDelegate.setDefaultNightMode(preferences.getInt(Utils.PREF_KEY_DESIGN_MODE, -1));
     }
 
     private void setupNotifications() {
@@ -82,8 +86,18 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
     }
 
 
+    @Override
+    protected void onResume() {
+        currentBudget = preferences.getFloat(Utils.PREFS_CURRENT_BUDGET_KEY, 200);
+        maximumBudget = Float.parseFloat(preferences.getString(Utils.PREFS_MAXIMUM_BUDGET_KEY, "200"));
+        pbrBudgetRemaining.setMax(Math.round(maximumBudget));
+        txtRemainingBudget.setText(getResources().getString(R.string.currency_sign_value).replace("$VALUE", String.valueOf(currentBudget)));
+        pbrBudgetRemaining.setProgress(Math.round(currentBudget));
+        super.onResume();
+    }
+
     private void initData() {
-        preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
         if (!preferences.contains(Utils.PREFS_HAS_BEEN_LAUNCHED_KEY))
         {
             int y = YearMonth.now(ZoneId.systemDefault()).getYear();
@@ -95,7 +109,8 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         itemManager = new ItemManager(getApplicationContext(), this);
         itemAdapter = new ItemAdapter(this, getApplicationContext());
         currentBudget = preferences.getFloat(Utils.PREFS_CURRENT_BUDGET_KEY, 200);
-        maximumBudget = preferences.getFloat(Utils.PREFS_MAXIMUM_BUDGET_KEY, 200);
+        maximumBudget = Float.parseFloat(preferences.getString(Utils.PREFS_MAXIMUM_BUDGET_KEY, "200"));
+
     }
 
     private void updateSubTotal() {
@@ -200,4 +215,5 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         preferences.edit().putFloat(Utils.PREFS_CURRENT_BUDGET_KEY, currentBudget).apply();
         itemManager.removeItem(toDelete);
     }
+
 }

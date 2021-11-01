@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/settings_category_notifications">
+
+        <androidx.preference.SwitchPreference
+            android:defaultValue="true"
+            android:key="prefs:notificationEnabledKey"
+            android:summary="@string/summary_notification_switch"
+            android:title="@string/title_notification_switch"/>
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/settings_category_budget">
+
+        <androidx.preference.EditTextPreference
+            android:defaultValue="200"
+            android:key="prefs:maximumBudgetKey"
+            android:summary="@string/summary_max_budget_edt"
+            android:title="@string/title_max_budget_edt"/>
+
+        <androidx.preference.Preference
+            android:summary="@string/summary_reset_budget_pref"
+            android:title="@string/title_reset_budget_pref"
+            android:key="prefs:resetbudget"/>
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/settings_category_design">
+
+        <androidx.preference.Preference
+            android:summary="@string/summary_darkmode_pref"
+            android:title="@string/title_darkmode_pref"
+            android:key="prefs:changeDesignPref"/>
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/settings_category_data">
+
+        <androidx.preference.Preference
+            android:summary="@string/summary_delete_data_pref"
+            android:title="@string/title_delete_data_pref"
+            android:key="prefs:deletedatapref"/>
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

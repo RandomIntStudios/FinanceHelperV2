@@ -91,4 +91,41 @@
     <string name="multiply">$COUNT times</string>
     <string name="single_price">at $PRICE$ each</string>
     <string name="total_price">$TOTAL$</string>
+
+    //Settings
+
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="settings_category_notifications">Notifications</string>
+    <string name="title_notification_switch">Notifications</string>
+    <string name="summary_notification_switch">You can enable or disable notifications here</string>
+    <string name="settings_category_budget">Budget</string>
+    <string name="title_max_budget_edt">Maximum budget</string>
+    <string name="summary_max_budget_edt">Enter your maximum budget here. These changes will take effect with the next budget reset, alternatively you can also reset your budget in the settings at any time</string>
+    <string name="title_reset_budget_pref">Reset budget</string>
+    <string name="summary_reset_budget_pref">Click here to reset your Budget</string>
+    <string name="settings_category_design">Design</string>
+    <string name="title_darkmode_pref">Dark Mode</string>
+    <string name="summary_darkmode_pref">Click here to change between dark and light mode</string>
+
+    <string name="dialog_reset_budget_title">Are you sure you want to reset your budget?</string>
+    <string name="dialog_reset_budget_yes">Reset</string>
+    <string name="dialog_reset_budget_no">Cancel</string>
+
+    <string name="rbn_dark">Dark Mode</string>
+    <string name="rbn_light">Light Mode</string>
+    <string name="rbn_system_default">System default</string>
+    <string name="txt_choose_design">Choose a design</string>
+
+    <string name="settings_category_data">Data</string>
+    <string name="title_delete_data_pref">Delete data</string>
+    <string name="summary_delete_data_pref">Click here to delete stored data in the database. WARNING: Once deleted the entries can not be recreated!</string>
+
+    <string name="dialog_delete_data_title">Are you sure you want to delete all data?</string>
+    <string name="dialog_delete_data_yes">Delete data</string>
+    <string name="dialog_delete_data_no">Cancel</string>
+    <string name="toast_delete_complete">Data has been deleted</string>
+
+
 </resources>

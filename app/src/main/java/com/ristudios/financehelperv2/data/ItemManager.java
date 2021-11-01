@@ -102,6 +102,7 @@ public class ItemManager {
         });
     }
 
+
     public float getTotalPrice(){
         float total = 0;
         for (Item item: items){

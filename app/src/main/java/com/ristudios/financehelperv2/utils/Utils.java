@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.ristudios.financehelperv2.R;
 import com.ristudios.financehelperv2.data.Item;
@@ -32,10 +33,15 @@ public final class Utils {
 
     public static final String PREFS_CURRENT_BUDGET_KEY = "prefs:currentBudgetKey";
     public static final String PREFS_MAXIMUM_BUDGET_KEY = "prefs:maximumBudgetKey";
+    public static final String PREF_KEY_RESET_BUDGET = "prefs:resetbudget";
+    public static final String PREF_KEY_NOTIFICATION_ENABLED = "prefs:notificationEnabledKey";
+    public static final String PREF_KEY_CHANGE_DESIGN = "prefs:changeDesignPref";
+    public static final String PREF_KEY_DESIGN_MODE = "prefs:selecteddesignmode";
+    public static final String PREF_KEY_DELETE_DATA = "prefs:deletedatapref";
     public static final String PREFS_HAS_BEEN_LAUNCHED_KEY = "prefs:hasBeenLaunchedBefore";
     public static final String PREFS_FIRST_LAUNCH_YEAR_KEY = "prefs:firstLaunchYear";
     public static final String PREFS_FIRST_LAUNCH_MONTH_KEY = "prefs:firstLaunchMonth";
-    public static final String INTENT_ACTION_BUDGET_RESET = "com.ristudios.financehelpeerv2.BUDGET_RESET";
+    public static final String INTENT_ACTION_BUDGET_RESET = "com.ristudios.financehelperv2.BUDGET_RESET";
     public static final int REQUEST_CODE_BUDGET_RESET = -1;
     public static final int REQUEST_CODE_NOTIFICATION_ONCLICK = -2;
     public static final int ID_NOTIFICATION_RESET = 1;
@@ -125,9 +131,11 @@ public final class Utils {
         return new long[] {start, end};
     }
 
-    public static long getTimeForAlarm(){
+    public static long getTimeForResetAlarm(){
         ZonedDateTime current = Utils.getCurrentZonedTime();
+        Log.d("TIME_KEY", "TIme is " +  current.with(LocalDate.of(current.getYear(), current.getMonth(), 1)).with(LocalTime.of(0,0,0)).plusMonths(1));
         return current.with(LocalDate.of(current.getYear(), current.getMonth(), 1)).with(LocalTime.of(0,0,0)).plusMonths(1).toInstant().toEpochMilli();
+
     }
 
     //endregion
