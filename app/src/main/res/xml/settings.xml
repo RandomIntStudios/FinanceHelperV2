@@ -41,6 +41,16 @@
 
     </androidx.preference.PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/settings_category_language">
+
+        <Preference
+            android:summary="@string/summary_language_pref"
+            android:title="@string/title_language_pref"
+            android:key="prefs:language"/>
+
+    </PreferenceCategory>
+
     <androidx.preference.PreferenceCategory
         android:title="@string/settings_category_data">
 

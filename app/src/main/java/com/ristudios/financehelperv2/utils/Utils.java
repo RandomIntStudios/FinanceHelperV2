@@ -36,6 +36,7 @@ public final class Utils {
     public static final String PREF_KEY_RESET_BUDGET = "prefs:resetbudget";
     public static final String PREF_KEY_NOTIFICATION_ENABLED = "prefs:notificationEnabledKey";
     public static final String PREF_KEY_CHANGE_DESIGN = "prefs:changeDesignPref";
+    public static final String PREF_KEY_LANNGUAGE = "prefs:language";
     public static final String PREF_KEY_DESIGN_MODE = "prefs:selecteddesignmode";
     public static final String PREF_KEY_DELETE_DATA = "prefs:deletedatapref";
     public static final String PREFS_HAS_BEEN_LAUNCHED_KEY = "prefs:hasBeenLaunchedBefore";

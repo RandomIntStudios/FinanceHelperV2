@@ -16,9 +16,12 @@ import com.ristudios.financehelperv2.ui.activities.MonthlyOverviewActivity;
 public class Alarm extends BroadcastReceiver {
 
 
+
     public Alarm(){
 
     }
+
+
 
     public void setBudgetResetForNextMonth(Context context){
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -34,6 +37,7 @@ public class Alarm extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d("TIME_KEY", "Alarm received");
         if (intent.getAction().equals(Utils.INTENT_ACTION_BUDGET_RESET)) {
+            Log.d("TIME_KEY", "Budget reset triggered");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             prefs.edit().putFloat(Utils.PREFS_CURRENT_BUDGET_KEY, prefs.getFloat(Utils.PREFS_MAXIMUM_BUDGET_KEY, 200)).apply();
             setBudgetResetForNextMonth(context);
@@ -64,4 +68,5 @@ public class Alarm extends BroadcastReceiver {
             setBudgetResetForNextMonth(context);
         }
     }
+
 }

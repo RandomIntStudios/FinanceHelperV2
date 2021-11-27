@@ -3,6 +3,7 @@ package com.ristudios.financehelperv2.ui.fragments;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceManager;
 
 import com.ristudios.financehelperv2.R;
+import com.ristudios.financehelperv2.ui.activities.SettingsActivity;
 import com.ristudios.financehelperv2.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
@@ -72,6 +74,8 @@ public class DesignDialog extends DialogFragment {
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                             prefs.edit().putInt(Utils.PREF_KEY_DESIGN_MODE, AppCompatDelegate.getDefaultNightMode()).apply();
                         }
+                        getActivity().finish();
+                        getActivity().startActivity(new Intent(getActivity(), SettingsActivity.class));
                         dismiss();
                     }
                 })

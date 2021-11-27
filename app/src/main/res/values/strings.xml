@@ -120,12 +120,37 @@
 
     <string name="settings_category_data">Data</string>
     <string name="title_delete_data_pref">Delete data</string>
-    <string name="summary_delete_data_pref">Click here to delete stored data in the database. WARNING: Once deleted the entries can not be recreated!</string>
+    <string name="summary_delete_data_pref">Click here to delete stored data in the database. WARNING: Once deleted the data can not be restored!</string>
 
     <string name="dialog_delete_data_title">Are you sure you want to delete all data?</string>
     <string name="dialog_delete_data_yes">Delete data</string>
     <string name="dialog_delete_data_no">Cancel</string>
     <string name="toast_delete_complete">Data has been deleted</string>
+
+    <string name="settings_category_language">Language</string>
+    <string name="title_language_pref">Change language</string>
+    <string name="summary_language_pref">This option is currently under development and will be available in later versions</string>
+
+    //language dialog
+
+    <string name="rbn_lang_def">System default</string>
+    <string name="rbn_lang_en">English</string>
+    <string name="rbn_lang_de">German</string>
+    <string name="lang_dialog_header">Choose your language</string>
+
+    //Info
+
+    <string name="info_category_header">Info</string>
+    <string name="info_version_desc">Version:</string>
+    <string name="info_app_version">Version 1.0 beta</string>
+    <string name="info_release_date_desc">Release date:</string>
+    <string name="info_release_date">11/15/2021</string>
+    <string name="info_developer_desc">Developer:</string>
+    <string name="info_developer">RandomIntStudios</string>
+    <string name="info_support_header">Support</string>
+    <string name="info_contact_support">Contact:</string>
+    <string name="info_contact_email"><u>RandomIntStudios@gmail.com</u></string>
+    <string name="info_intent_chooser_mail">Send an email</string>
 
 
 </resources>
