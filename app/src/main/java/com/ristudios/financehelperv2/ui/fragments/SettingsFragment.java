@@ -30,9 +30,8 @@ import java.util.List;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
-    private Preference prefResetBudget, prefSelectDesign, prefDeleteData;
+    private Preference prefResetBudget, prefSelectDesign, prefDeleteData, prefSelectLanguage;
     private EditTextPreference edtPrefMaxBudget;
-    private SwitchPreference swtPrefNotificationsEnabled;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -42,7 +41,14 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     DesignDialog dialog = new DesignDialog();
-                    dialog.show(getActivity().getSupportFragmentManager(), "bla");
+                    dialog.show(getActivity().getSupportFragmentManager(), "settings:choosedesign");
+                    return false;
+                }
+            });
+            prefSelectLanguage.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+
                     return false;
                 }
             });
@@ -117,6 +123,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         prefDeleteData = findPreference(Utils.PREF_KEY_DELETE_DATA);
         prefSelectDesign = findPreference(Utils.PREF_KEY_CHANGE_DESIGN);
         edtPrefMaxBudget = findPreference(Utils.PREFS_MAXIMUM_BUDGET_KEY);
-        swtPrefNotificationsEnabled = findPreference(Utils.PREF_KEY_NOTIFICATION_ENABLED);
+        prefSelectLanguage = findPreference(Utils.PREF_KEY_LANNGUAGE);
     }
 }

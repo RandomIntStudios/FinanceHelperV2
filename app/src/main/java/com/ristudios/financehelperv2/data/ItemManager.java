@@ -25,6 +25,11 @@ public class ItemManager {
         databaseExecutor = new DatabaseExecutor(helper);
     }
 
+    public void clearViews(){
+        items.clear();
+        listener.onItemListUpdated();
+    }
+
     public void addItem(Item toAdd){
         items.add(toAdd);
         listener.onItemListUpdated();

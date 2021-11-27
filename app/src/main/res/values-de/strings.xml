@@ -127,5 +127,31 @@
     <string name="dialog_delete_data_no">Abbrechen</string>
     <string name="toast_delete_complete">Daten wurden gelöscht</string>
 
+    <string name="settings_category_language">Sprache</string>
+    <string name="title_language_pref">Sprache ändern</string>
+    <string name="summary_language_pref">Diese Option befindet sich aktuell in der Enntwicklung und wird in späteren Versionen verfügbar sein</string>
+
+    //language dialog
+
+    <string name="rbn_lang_def">Systemstandard</string>
+    <string name="rbn_lang_en">Englisch</string>
+    <string name="rbn_lang_de">Deutsch</string>
+    <string name="lang_dialog_header">Wähle deine Sprache</string>
+
+
+    //Info
+
+    <string name="info_category_header">Info</string>
+    <string name="info_version_desc">Version:</string>
+    <string name="info_app_version">Version 1.0 beta</string>
+    <string name="info_release_date_desc">Veröffentlicht:</string>
+    <string name="info_release_date">15.11.2021</string>
+    <string name="info_developer_desc">Entwickler:</string>
+    <string name="info_developer">RandomIntStudios</string>
+    <string name="info_support_header">Hilfe</string>
+    <string name="info_contact_support">Kontakt:</string>
+    <string name="info_contact_email"><u>RandomIntStudios@gmail.com</u></string>
+    <string name="info_intent_chooser_mail">Email senden</string>
+
 
 </resources>

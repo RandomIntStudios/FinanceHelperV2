@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -26,6 +28,7 @@ import com.ristudios.financehelperv2.utils.Utils;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.ZoneId;
+import java.util.Locale;
 
 public class BudgetActivity extends BaseActivity implements ItemManager.ItemManagerListener, ItemAdapter.AdapterClickListener, AddOrUpdateDialog.AddOrUpdateDialogListener, DeleteDialog.DeleteDialogListener {
 
@@ -47,10 +50,18 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         getSupportActionBar().setTitle(R.string.budget);
         initData();
         initUI();
+        initConfig();
         setupNotifications();
         itemManager.loadItemsForCurrentDate();
         initAlarms();
         AppCompatDelegate.setDefaultNightMode(preferences.getInt(Utils.PREF_KEY_DESIGN_MODE, -1));
+    }
+
+    private void initConfig() {
+        String lang = preferences.getString(Utils.PREF_KEY_LANNGUAGE, "");
+        if (!lang.equals("")){
+            getResources().getConfiguration().setLocale(new Locale(lang));
+        }
     }
 
     private void setupNotifications() {
