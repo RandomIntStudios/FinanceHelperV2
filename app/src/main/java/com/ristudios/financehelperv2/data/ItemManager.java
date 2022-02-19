@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Holds a List containing Items.
+ */
 public class ItemManager {
 
     private ItemManagerListener listener;
@@ -73,7 +76,7 @@ public class ItemManager {
 
     public void loadItemsForCurrentDate(){
         long [] searchMillis = Utils.getSearchTimesForCurrentDay();
-        databaseExecutor.databaseLoad(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
+        databaseExecutor.databaseLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
             @Override
             public void onDataLoaded(List<Item> loadedItems) {
                 items.clear();
@@ -85,7 +88,7 @@ public class ItemManager {
 
     public void loadItemsForDate(int year, int monthValue, int day){
         long[] searchMillis = Utils.getSearchTimesForDate(year, monthValue, day);
-        databaseExecutor.databaseLoad(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
+        databaseExecutor.databaseLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
             @Override
             public void onDataLoaded(List<Item> loadedItems) {
                 items.clear();
@@ -97,7 +100,7 @@ public class ItemManager {
 
     public void loadItemsForMonth(int year, int monthValue){
         long[] searchMillis = Utils.getSearchTimesForMonth(year, monthValue);
-        databaseExecutor.databaseLoad(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
+        databaseExecutor.databaseLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
             @Override
             public void onDataLoaded(List<Item> loadedItems) {
                 items.clear();

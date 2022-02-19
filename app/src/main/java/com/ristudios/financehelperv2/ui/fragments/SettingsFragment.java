@@ -1,7 +1,6 @@
 package com.ristudios.financehelperv2.ui.fragments;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,16 +9,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
-import androidx.preference.SwitchPreference;
 
 import com.ristudios.financehelperv2.R;
 import com.ristudios.financehelperv2.data.Item;
-import com.ristudios.financehelperv2.data.ItemManager;
 import com.ristudios.financehelperv2.data.database.DatabaseExecutor;
 import com.ristudios.financehelperv2.data.database.ItemDatabaseHelper;
 import com.ristudios.financehelperv2.utils.Utils;
@@ -90,7 +86,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     DatabaseExecutor executor = new DatabaseExecutor(new ItemDatabaseHelper(getActivity()));
-                                    executor.databaseClear(new DatabaseExecutor.DataLoadListener() {
+                                    executor.databaseLoad(new DatabaseExecutor.DataLoadListener() {
                                         @Override
                                         public void onDataLoaded(List<Item> loadedItems) {
                                             for (Item item : loadedItems) {

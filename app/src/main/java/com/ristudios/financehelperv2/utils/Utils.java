@@ -49,6 +49,42 @@ public final class Utils {
     public static final String INTENT_KEY_MONTH = "key_month";
     public static final String INTENT_KEY_YEAR = "key_year";
 
+
+    //consts for enum names, to be used with typeConverters
+
+    /**
+     * HOBBY
+     */
+    public static final String C_HOB = "hobby";
+    /**
+     * NONE
+     */
+    public static final String C_NON = "none";
+    /**
+     * WORK AND EDUCATION
+     */
+    public static final String C_WAE = "work";
+    /**
+     * HYGIENE AND COSMETICS
+     */
+    public static final String C_HAC = "hygiene";
+    /**
+     * LUXURY
+     */
+    public static final String C_LUX = "luxury";
+    /**
+     * GENERAL
+     */
+    public static final String C_GEN = "general";
+    /**
+     * MONTHLY PAYMENTS
+     */
+    public static final String C_MON = "monthly";
+    /**
+     * GROCERIES
+     */
+    public static final String C_GRO = "groceries";
+
     //endregion
 
     public static float roundToTwoDecimals(float f){

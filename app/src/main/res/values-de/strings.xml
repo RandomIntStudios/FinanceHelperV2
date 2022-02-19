@@ -153,5 +153,15 @@
     <string name="info_contact_email"><u>RandomIntStudios@gmail.com</u></string>
     <string name="info_intent_chooser_mail">Email senden</string>
 
+    //Categories
+
+    <string name="category_none">-</string>
+    <string name="category_monthly_payments">Monatlich</string>
+    <string name="category_groceries">Lebensmittel</string>
+    <string name="category_hygiene_cosmetics">Hygiene &amp; Kosmetik</string>
+    <string name="category_luxury">Luxus</string>
+    <string name="category_general">Allgemein</string>
+    <string name="category_hobby">Hobby</string>
+    <string name="category_work_school">Arbeit &amp; Bildung</string>
 
 </resources>

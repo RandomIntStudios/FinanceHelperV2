@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * Represents a shoppingitem.
+ */
 @Entity(tableName = "items")
 public class Item {
 
@@ -11,6 +14,7 @@ public class Item {
     @NonNull
     private String uuid;
     private String name;
+    private Category category;
     private long dateMillis;
     private float price;
     private float priceTotal;
@@ -21,6 +25,7 @@ public class Item {
     {
         this.uuid = uuid;
         this.name = name;
+        this.category = Category.NONE;
         this.dateMillis = dateMillis;
         this.price = price;
         this.priceTotal = priceTotal;
@@ -83,5 +88,13 @@ public class Item {
 
     public void setIncome(boolean income) {
         isIncome = income;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

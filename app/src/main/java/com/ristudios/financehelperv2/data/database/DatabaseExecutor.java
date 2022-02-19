@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * Takes care of threading when working with databases and executes the database operations.
+ */
 public class DatabaseExecutor {
     private final ItemDatabaseHelper helper;
 
@@ -21,7 +24,7 @@ public class DatabaseExecutor {
         });
     }
 
-    public void databaseClear(DataLoadListener loadListener){
+    public void databaseLoad(DataLoadListener loadListener){
         Executor e = Executors.newSingleThreadExecutor();
         e.execute(() -> {
             loadListener.onDataLoaded(helper.getAllItems());
@@ -42,7 +45,7 @@ public class DatabaseExecutor {
         });
     }
 
-    public void databaseLoad(long start, long end, DataLoadListener listener){
+    public void databaseLoadForTime(long start, long end, DataLoadListener listener){
         Executor e = Executors.newSingleThreadExecutor();
         e.execute(() -> listener.onDataLoaded(helper.getItemsForTime(start, end)));
     }
