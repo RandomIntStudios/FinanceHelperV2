@@ -1,8 +1,10 @@
-package com.ristudios.financehelperv2.data;
+package com.ristudios.financehelperv2.data.monthlypayments;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.ristudios.financehelperv2.data.Category;
 
 @Entity(tableName = "monthlyPayments")
 public class MonthlyPayment {

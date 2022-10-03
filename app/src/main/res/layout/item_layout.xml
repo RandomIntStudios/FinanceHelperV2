@@ -16,30 +16,32 @@
         android:layout_marginTop="5dp"
         android:text="count"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_item_layout_date" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_item_layout_category" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_item_layout_name"
+        style="@style/Theme.FinanceHelperV2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textAlignment="textStart"
+        android:text="name"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_item_layout_count"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/txt_item_layout_count"
+        app:layout_constraintTop_toTopOf="@+id/txt_item_layout_count" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_item_layout_price"
         style="@style/Theme.FinanceHelperV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:text="name"
+        android:text="á price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_item_layout_count" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txt_item_layout_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:text="á price"
-        style="@style/Theme.FinanceHelperV2"
-        app:layout_constraintStart_toEndOf="@+id/txt_item_layout_name"
         app:layout_constraintTop_toBottomOf="@+id/txt_item_layout_count" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -77,9 +79,20 @@
         style="@style/Theme.FinanceHelperV2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="5dp"
         android:text="time"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/txt_item_layout_date"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_item_layout_category"
+        style="@style/Theme.FinanceHelperV2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_item_layout_date" />
 </androidx.constraintlayout.widget.ConstraintLayout>

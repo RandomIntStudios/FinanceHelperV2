@@ -100,6 +100,9 @@ public class BaseActivity extends AppCompatActivity implements DrawerLayout.Draw
                 drawerLayout.closeDrawer(GravityCompat.START, true);
                 launchActivity(classname, MonthlyOverviewActivity.class, false);
                 break;
+            case R.id.nav_monthly_payments:
+                drawerLayout.closeDrawer(GravityCompat.START, true);
+                launchActivity(classname, MonthlyPaymentActivity.class, false);
             default:
                 return false;
         }

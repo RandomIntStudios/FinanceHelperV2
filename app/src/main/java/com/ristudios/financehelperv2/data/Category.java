@@ -21,23 +21,24 @@ public enum Category {
     }
 
     public String getLocalizedName(Context context) {
+        String[] categories = context.getResources().getStringArray(R.array.categories);
         switch (this) {
             case NONE:
-                return context.getString(R.string.category_none);
+                return categories[2];
             case WORK_EDUCATION:
-                return context.getString(R.string.category_work_school);
+                return categories[8];
             case HYGIENE_COSMETICS:
-                return context.getString(R.string.category_hygiene_cosmetics);
+                return categories[4];
             case HOBBY:
-                return context.getString(R.string.category_hobby);
+                return categories[7];
             case GENERAL_ITEMS:
-                return context.getString(R.string.category_general);
+                return categories[6];
             case GROCERIES:
-                return context.getString(R.string.category_groceries);
+                return categories[3];
             case MONTHLY_PAYMENTS:
-                return context.getString(R.string.category_monthly_payments);
+                return categories[1];
             case LUXURY:
-                return context.getString(R.string.category_luxury);
+                return categories[5];
 
         }
 

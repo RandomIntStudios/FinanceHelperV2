@@ -3,8 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/activity_budget.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/activity_calendar.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/activity_info.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/activity_monthly_overview.xml" value="0.33106884057971014" />
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/activity_monthly_payment.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/dialog_add_update_item.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/dialog_change_language.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/layout/item_layout.xml" value="0.6" />
+        <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/menu/drawer_menu.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/Paulf/Documents/GitHub/FinanceHelperV2/app/src/main/res/xml/settings.xml" value="0.30344202898550726" />
       </map>
     </option>

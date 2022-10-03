@@ -5,6 +5,7 @@
     <string name="navigation">Navigation</string>
     <string name="budget">Budget</string>
     <string name="calendar">Calendar</string>
+    <string name="monthly_payments">Monthly payments</string>
     <string name="options">Options</string>
     <string name="settings">Settings</string>
     <string name="info">Info</string>
@@ -29,7 +30,11 @@
     <string name="negative_option_add_update">Dismiss</string>
     <string name="toast_discarded">Discarded!</string>
     <string name="toast_saved">Saved!</string>
-    <string name="toast_hint_input">Please fill out all fields</string>
+    <string name="toast_hint_input_name">Please fill out the name field</string>
+    <string name="toast_hint_input_category">Please select a category</string>
+    <string name="toast_hint_input_price">Please fill out the price field</string>
+    <string name="toast_hint_input_count">Please fill out the count field</string>
+    <string name="toast_hint_input_in_out">Please select if the money was spent or received</string>
     <string name="price_info">The total amount will be calculated by the app</string>
 
     //Notifications
@@ -88,9 +93,11 @@
     </string-array>
 
     //single item layout
-    <string name="multiply">$COUNT times</string>
+    <string name="multiply">$COUNTx</string>
     <string name="single_price">at $PRICE$ each</string>
     <string name="total_price">$TOTAL$</string>
+    <string name="header_add">Add item</string>
+    <string name="header_update">Update item</string>
 
     //Settings
 
@@ -154,15 +161,18 @@
 
     //Categories
 
-    <string name="category_none">-</string>
-    <string name="category_monthly_payments">Monthly</string>
-    <string name="category_groceries">Groceries</string>
-    <string name="category_hygiene_cosmetics">Hygiene &amp; Cosmetics</string>
-    <string name="category_luxury">Luxury</string>
-    <string name="category_general">General</string>
-    <string name="category_hobby">Hobby</string>
-    <string name="category_work_school">Work &amp; Education</string>
 
+    <string-array name="categories">
+        <item name="category_hint">Choose Category</item>
+        <item name="category_monthly_payments">Monthly</item>
+        <item name="category_none">No Category</item>
+        <item name="category_groceries">Groceries</item>
+        <item name="category_hygiene_cosmetics">Hygiene/Cosmetic</item>
+        <item name="category_luxury">Luxury</item>
+        <item name="category_general">General</item>
+        <item name="category_hobby">Hobby</item>
+        <item name="category_work_school">Work/Education</item>
+    </string-array>
 
 
 </resources>

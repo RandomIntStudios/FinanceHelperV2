@@ -21,11 +21,11 @@ public class Item {
     private int count;
     private boolean isIncome;
 
-    public Item (@NonNull String uuid, String name, long dateMillis, float price, float priceTotal, int count, boolean isIncome)
+    public Item (@NonNull String uuid, String name, Category category, long dateMillis, float price, float priceTotal, int count, boolean isIncome)
     {
         this.uuid = uuid;
         this.name = name;
-        this.category = Category.NONE;
+        this.category = category;
         this.dateMillis = dateMillis;
         this.price = price;
         this.priceTotal = priceTotal;

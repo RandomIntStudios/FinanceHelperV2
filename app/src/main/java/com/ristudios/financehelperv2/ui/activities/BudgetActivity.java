@@ -1,15 +1,15 @@
 package com.ristudios.financehelperv2.ui.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.LocaleList;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +30,7 @@ import java.time.YearMonth;
 import java.time.ZoneId;
 import java.util.Locale;
 
-public class BudgetActivity extends BaseActivity implements ItemManager.ItemManagerListener, ItemAdapter.AdapterClickListener, AddOrUpdateDialog.AddOrUpdateDialogListener, DeleteDialog.DeleteDialogListener {
+public class BudgetActivity extends BaseActivity implements ItemManager.ItemManagerListener, ItemAdapter.AdapterClickListener, AddOrUpdateDialog.AddOrUpdateDialogListener, DeleteDialog.DeleteDialogListener{
 
     private ItemManager itemManager;
     private TextView txtDate, txtSubTotalValue, txtRemainingBudget;
@@ -55,6 +55,11 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         itemManager.loadItemsForCurrentDate();
         initAlarms();
         AppCompatDelegate.setDefaultNightMode(preferences.getInt(Utils.PREF_KEY_DESIGN_MODE, -1));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void initConfig() {
@@ -84,6 +89,21 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         RecyclerView recyclerView = findViewById(R.id.recycler_items);
         recyclerView.setAdapter(itemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                fabAddItem.show();
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fabAddItem.isShown()){
+                    fabAddItem.hide();
+                }
+            }
+        });
         fabAddItem = findViewById(R.id.fab_add_item);
         fabAddItem.setOnClickListener(v -> {
             AddOrUpdateDialog dialog = new AddOrUpdateDialog();
@@ -104,6 +124,8 @@ public class BudgetActivity extends BaseActivity implements ItemManager.ItemMana
         pbrBudgetRemaining.setMax(Math.round(maximumBudget));
         txtRemainingBudget.setText(getResources().getString(R.string.currency_sign_value).replace("$VALUE", String.valueOf(currentBudget)));
         pbrBudgetRemaining.setProgress(Math.round(currentBudget));
+        itemManager.clearViews();
+        itemManager.loadItemsForCurrentDate();
         super.onResume();
     }
 

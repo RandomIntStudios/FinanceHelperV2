@@ -86,11 +86,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     DatabaseExecutor executor = new DatabaseExecutor(new ItemDatabaseHelper(getActivity()));
-                                    executor.databaseLoad(new DatabaseExecutor.DataLoadListener() {
+                                    executor.databaseItemsLoad(new DatabaseExecutor.ItemDataLoadListener() {
                                         @Override
-                                        public void onDataLoaded(List<Item> loadedItems) {
+                                        public void onItemsLoaded(List<Item> loadedItems) {
                                             for (Item item : loadedItems) {
-                                                executor.databaseDelete(item);
+                                                executor.databaseItemsDelete(item);
                                             }
                                             getActivity().runOnUiThread(()->{
                                                 Toast.makeText(getContext(), getString(R.string.toast_delete_complete), Toast.LENGTH_SHORT).show();

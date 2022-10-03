@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.ristudios.financehelperv2"
         minSdkVersion 26
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -28,7 +28,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     task wrapper (type: Wrapper){
-        gradleVersion = '7.2'
+        gradleVersion = '7.1.1'
     }
 }
 

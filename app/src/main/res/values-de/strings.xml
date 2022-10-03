@@ -6,6 +6,7 @@
     <string name="navigation">Navigation</string>
     <string name="budget">Budget</string>
     <string name="calendar">Kalender</string>
+    <string name="monthly_payments">Monatliche Zahlungen</string>
     <string name="options">Optionen</string>
     <string name="settings">Einstellungen</string>
     <string name="info">Info</string>
@@ -30,7 +31,11 @@
     <string name="negative_option_add_update">Verwerfen</string>
     <string name="toast_discarded">Verworfen!</string>
     <string name="toast_saved">Gespeichert!</string>
-    <string name="toast_hint_input">Korrigiere bitte alle Angaben</string>
+    <string name="toast_hint_input_name">Gibt bitte einen Namen ein</string>
+    <string name="toast_hint_input_category">Wähle bitte eine Kategorie aus</string>
+    <string name="toast_hint_input_price">Gib bitte einen Preis an</string>
+    <string name="toast_hint_input_count">Gib bitte eine Anzahl an</string>
+    <string name="toast_hint_input_in_out">Wähle bitte aus ob Geld erhalten oder ausgegeben wurde</string>
     <string name="price_info">Der Gesamtpreis wird von der App berechnet</string>
 
     //Notifications
@@ -88,9 +93,12 @@
     </string-array>
 
     //single item layout
-    <string name="multiply">$COUNT mal</string>
+    <string name="multiply">$COUNTx</string>
     <string name="single_price">zu je $PRICE€</string>
     <string name="total_price">$TOTAL€</string>
+    <string name="header_add">Eintrag hinzufügen</string>
+    <string name="header_update">Eintrag aktualisieren</string>
+
 
     //Settings
 
@@ -155,13 +163,19 @@
 
     //Categories
 
-    <string name="category_none">-</string>
-    <string name="category_monthly_payments">Monatlich</string>
-    <string name="category_groceries">Lebensmittel</string>
-    <string name="category_hygiene_cosmetics">Hygiene &amp; Kosmetik</string>
-    <string name="category_luxury">Luxus</string>
-    <string name="category_general">Allgemein</string>
-    <string name="category_hobby">Hobby</string>
-    <string name="category_work_school">Arbeit &amp; Bildung</string>
+
+
+    <string-array name="categories">
+        <item name="category_hint">Kategorie wählen</item>
+        <item name="category_monthly_payments">Monatlich</item>
+        <item name="category_none">Keine Kategorie</item>
+        <item name="category_groceries">Lebensmittel</item>
+        <item name="category_hygiene_cosmetics">Hygiene &amp; Kosmetik</item>
+        <item name="category_luxury">Luxus</item>
+        <item name="category_general">Allgemein</item>
+        <item name="category_hobby">Hobby</item>
+        <item name="category_work_school">Arbeit &amp; Bildung</item>
+    </string-array>
+
 
 </resources>

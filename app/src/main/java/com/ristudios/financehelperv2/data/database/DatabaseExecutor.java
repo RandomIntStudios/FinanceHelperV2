@@ -1,6 +1,7 @@
 package com.ristudios.financehelperv2.data.database;
 
 import com.ristudios.financehelperv2.data.Item;
+import com.ristudios.financehelperv2.data.monthlypayments.MonthlyPayment;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -17,17 +18,17 @@ public class DatabaseExecutor {
         this.helper = helper;
     }
 
-    public void databaseAdd(Item item){
+    public void databaseItemsAdd(Item item){
         Executor e = Executors.newSingleThreadExecutor();
         e.execute(() -> {
             helper.addItem(item);
         });
     }
 
-    public void databaseLoad(DataLoadListener loadListener){
+    public void databaseItemsLoad(ItemDataLoadListener loadListener){
         Executor e = Executors.newSingleThreadExecutor();
         e.execute(() -> {
-            loadListener.onDataLoaded(helper.getAllItems());
+            loadListener.onItemsLoaded(helper.getAllItems());
         });
     }
 
@@ -38,19 +39,44 @@ public class DatabaseExecutor {
         });
     }
 
-    public void databaseDelete(Item item){
+    public void databaseItemsDelete(Item item){
         Executor e = Executors.newSingleThreadExecutor();
         e.execute(() -> {
             helper.deleteItem(item);
         });
     }
 
-    public void databaseLoadForTime(long start, long end, DataLoadListener listener){
+    public void databaseItemsLoadForTime(long start, long end, ItemDataLoadListener listener){
         Executor e = Executors.newSingleThreadExecutor();
-        e.execute(() -> listener.onDataLoaded(helper.getItemsForTime(start, end)));
+        e.execute(() -> listener.onItemsLoaded(helper.getItemsForTime(start, end)));
     }
 
-    public interface DataLoadListener{
-        void onDataLoaded(List<Item> loadedItems);
+    public void databaseMonthlyPaymentsAdd(MonthlyPayment monthlyPayment){
+        Executor e = Executors.newSingleThreadExecutor();
+        e.execute(() -> {
+            helper.addMonthlyPayment(monthlyPayment);
+        });
+    }
+
+    public void databaseMonthlyPaymentsDelete(MonthlyPayment monthlyPayment){
+        Executor e = Executors.newSingleThreadExecutor();
+        e.execute(() -> {
+            helper.deleteMonthlyPayment(monthlyPayment);
+        });
+    }
+
+    public void databaseMonthlyPaymentsLoadAll(MonthlyPaymentDataLoadListener listener){
+        Executor e = Executors.newSingleThreadExecutor();
+        e.execute(() -> {
+            listener.onPaymentsLoaded(helper.getAllMonthlyPayments());
+        });
+    }
+
+    public interface ItemDataLoadListener {
+        void onItemsLoaded(List<Item> loadedItems);
+    }
+
+    public interface MonthlyPaymentDataLoadListener {
+        void onPaymentsLoaded(List<MonthlyPayment> loadedPayments);
     }
 }

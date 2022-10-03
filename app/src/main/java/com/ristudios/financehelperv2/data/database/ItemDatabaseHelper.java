@@ -8,6 +8,7 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.ristudios.financehelperv2.data.Item;
+import com.ristudios.financehelperv2.data.monthlypayments.MonthlyPayment;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,11 @@ public class ItemDatabaseHelper {
     private static final String DATABASE_NAME = "ristudios.financehelperv2:itemdatabase";
     private final ItemDatabase database;
 
+    /**
+     * Migration from Version 1 to 2.
+     * Creating monthlyPayments table with id, name, price and category columns.
+     * Altering items table and adding column for category.
+     */
     Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
@@ -29,7 +35,8 @@ public class ItemDatabaseHelper {
                     " PRIMARY KEY('uuid'))");
 
             database.execSQL("ALTER TABLE items " +
-                    " ADD COLUMN category TEXT");
+                    " ADD COLUMN category TEXT ");
+
         }
     };
 
@@ -64,5 +71,18 @@ public class ItemDatabaseHelper {
     public ArrayList<Item> getAllItems()
     {
         return new ArrayList<>(database.itemDAO().getAllItems());
+    }
+
+    public void addMonthlyPayment(MonthlyPayment payment) {
+        database.monthlyDAO().insertMonthlyPayment(payment);
+    }
+
+    public void deleteMonthlyPayment(MonthlyPayment payment) {
+        database.monthlyDAO().deleteMonthlyPayment(payment);
+    }
+
+    public ArrayList<MonthlyPayment> getAllMonthlyPayments()
+    {
+        return new ArrayList<>(database.monthlyDAO().getAllMonthlyPayments());
     }
 }

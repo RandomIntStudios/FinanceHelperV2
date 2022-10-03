@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.ristudios.financehelperv2.R;
+import com.ristudios.financehelperv2.data.Category;
 import com.ristudios.financehelperv2.data.Item;
 
 import java.math.RoundingMode;
@@ -87,97 +88,94 @@ public final class Utils {
 
     //endregion
 
-    public static float roundToTwoDecimals(float f){
+    public static float roundToTwoDecimals(float f) {
         DecimalFormat format = (DecimalFormat) DecimalFormat.getInstance(Locale.getDefault());
         format.applyPattern("#.00");
         format.setRoundingMode(RoundingMode.HALF_EVEN);
         String formatted = format.format(f);
-        formatted= formatted.replace(",", ".");
+        formatted = formatted.replace(",", ".");
         return Float.parseFloat(formatted);
     }
 
     //region java.time utils
 
-    public static ZonedDateTime getCurrentZonedTime()
-    {
+    public static ZonedDateTime getCurrentZonedTime() {
         return ZonedDateTime.now(ZoneId.systemDefault());
     }
 
-    public static long getMillisForDate(ZonedDateTime zonedDateTime){
+    public static long getMillisForDate(ZonedDateTime zonedDateTime) {
         return zonedDateTime.toInstant().toEpochMilli();
     }
 
-    public static String getLocalizedFormattedDate(ZonedDateTime toFormat){
+    public static String getLocalizedFormattedDate(ZonedDateTime toFormat) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
         return formatter.format(toFormat);
     }
 
-    public static String getLocalizedFormattedShortDate(ZonedDateTime toFormat){
+    public static String getLocalizedFormattedShortDate(ZonedDateTime toFormat) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
         return formatter.format(toFormat);
     }
 
-    public static String getLocalizedFormattedDate(LocalDate toFormat){
+    public static String getLocalizedFormattedDate(LocalDate toFormat) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
         return formatter.format(toFormat);
     }
 
-    public static ZonedDateTime getDateFromMillis(long millis){
+    public static ZonedDateTime getDateFromMillis(long millis) {
         ZonedDateTime date = ZonedDateTime.now(ZoneId.systemDefault());
         return date.with(Instant.ofEpochMilli(millis));
     }
 
-    public static String getLocalizedFormattedDate(long millis){
+    public static String getLocalizedFormattedDate(long millis) {
         ZonedDateTime zonedDateTime = getDateFromMillis(millis);
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
         return formatter.format(zonedDateTime);
     }
-    public static String getLocalizedFormattedTime(long millis){
+
+    public static String getLocalizedFormattedTime(long millis) {
         ZonedDateTime zonedDateTime = getDateFromMillis(millis);
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
         return formatter.format(zonedDateTime);
     }
 
-    public static String getLocalizedFormattedDateTime(ZonedDateTime zonedDateTime){
+    public static String getLocalizedFormattedDateTime(ZonedDateTime zonedDateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
         return formatter.format(zonedDateTime);
     }
 
-    public static long[] getSearchTimesForCurrentDay()
-    {
-        long start = Utils.getCurrentZonedTime().with(LocalTime.of(0,0,0)).toInstant().toEpochMilli();
+    public static long[] getSearchTimesForCurrentDay() {
+        long start = Utils.getCurrentZonedTime().with(LocalTime.of(0, 0, 0)).toInstant().toEpochMilli();
         long end = Utils.getCurrentZonedTime().with(LocalTime.of(23, 59, 59)).toInstant().toEpochMilli();
-        return new long[] {start, end};
+        return new long[]{start, end};
     }
 
-    public static long[] getSearchTimesForDate(int year, int monthValue, int dayOfMonth)
-    {
+    public static long[] getSearchTimesForDate(int year, int monthValue, int dayOfMonth) {
         long start = Utils.getCurrentZonedTime().with(LocalDate.of(year, monthValue, dayOfMonth))
-                .with(LocalTime.of(0,0,0)).toInstant().toEpochMilli();
+                .with(LocalTime.of(0, 0, 0)).toInstant().toEpochMilli();
         long end = Utils.getCurrentZonedTime().with(LocalDate.of(year, monthValue, dayOfMonth))
-                .with(LocalTime.of(23,59,59)).toInstant().toEpochMilli();
-        return new long[] {start, end};
+                .with(LocalTime.of(23, 59, 59)).toInstant().toEpochMilli();
+        return new long[]{start, end};
     }
 
-    public static long[] getSearchTimesForMonth(int year, int monthValue)
-    {
+    public static long[] getSearchTimesForMonth(int year, int monthValue) {
         LocalDate monthStart = LocalDate.of(year, monthValue, 1);
         long start = getCurrentZonedTime().with(monthStart).toInstant().toEpochMilli();
         LocalDate monthEnd = monthStart.withDayOfMonth(monthStart.lengthOfMonth());
         long end = getCurrentZonedTime().with(monthEnd).toInstant().toEpochMilli();
-        return new long[] {start, end};
+        return new long[]{start, end};
     }
 
-    public static long getTimeForResetAlarm(){
+    public static long getTimeForResetAlarm() {
         ZonedDateTime current = Utils.getCurrentZonedTime();
-        Log.d("TIME_KEY", "TIme is " +  current.with(LocalDate.of(current.getYear(), current.getMonth(), 1)).with(LocalTime.of(0,0,0)).plusMonths(1));
-        return current.with(LocalDate.of(current.getYear(), current.getMonth(), 1)).with(LocalTime.of(0,0,0)).plusMonths(1).toInstant().toEpochMilli();
+        Log.d("TIME_KEY", "TIme is " + current.with(LocalDate.of(current.getYear(), current.getMonth(), 1)).with(LocalTime.of(0, 0, 0)).plusMonths(1));
+        return current.with(LocalDate.of(current.getYear(), current.getMonth(), 1)).with(LocalTime.of(0, 0, 0)).plusMonths(1).toInstant().toEpochMilli();
 
     }
 
     //endregion
 
-    public static ArrayList<Item> sortListByDate(ArrayList<Item> listToSort){
+    public static ArrayList<Item> sortListByDate(ArrayList<Item> listToSort) {
         listToSort.sort(new Comparator<Item>() {
             @Override
             public int compare(Item o1, Item o2) {
@@ -187,24 +185,23 @@ public final class Utils {
         return listToSort;
     }
 
-    public static ArrayList<Item> sortListByPrice(ArrayList<Item> listToSort){
+    public static ArrayList<Item> sortListByPrice(ArrayList<Item> listToSort) {
         ArrayList<Item> incomes = new ArrayList<>();
         ArrayList<Item> outgoings = new ArrayList<>();
-        for (Item item: listToSort){
-            if (item.isIncome()){
+        for (Item item : listToSort) {
+            if (item.isIncome()) {
                 incomes.add(item);
-            }
-            else{
+            } else {
                 outgoings.add(item);
             }
         }
         incomes.sort(new Comparator<Item>() {
             @Override
             public int compare(Item o1, Item o2) {
-                if (o1.getPriceTotal() < o2.getPriceTotal()){
+                if (o1.getPriceTotal() < o2.getPriceTotal()) {
                     return 1;
                 }
-                if (o1.getPriceTotal() > o2.getPriceTotal()){
+                if (o1.getPriceTotal() > o2.getPriceTotal()) {
                     return -1;
                 }
                 return 0;
@@ -213,10 +210,10 @@ public final class Utils {
         outgoings.sort(new Comparator<Item>() {
             @Override
             public int compare(Item o1, Item o2) {
-                if (o1.getPriceTotal() > o2.getPriceTotal()){
+                if (o1.getPriceTotal() > o2.getPriceTotal()) {
                     return 1;
                 }
-                if (o1.getPriceTotal() < o2.getPriceTotal()){
+                if (o1.getPriceTotal() < o2.getPriceTotal()) {
                     return -1;
                 }
                 return 0;
@@ -230,37 +227,50 @@ public final class Utils {
 
     /**
      * Switches the name of a month with a string resource to display text in the correct language.
-     * @param name original name of month (by month.name()).
+     *
+     * @param name    original name of month (by month.name()).
      * @param context ApplicationContext.
      * @return the name of month from stringRes.
      */
-    public static String getLocalMonthName(String name, Context context){
+    public static String getLocalMonthName(String name, Context context) {
         String localName = "";
         String[] months = context.getResources().getStringArray(R.array.months);
-        switch (name){
-            case "january": localName = months[0];
+        switch (name) {
+            case "january":
+                localName = months[0];
                 break;
-            case "february": localName = months[1];
+            case "february":
+                localName = months[1];
                 break;
-            case "march":localName = months[2];
+            case "march":
+                localName = months[2];
                 break;
-            case "april":localName = months[3];
+            case "april":
+                localName = months[3];
                 break;
-            case "may":localName = months[4];
+            case "may":
+                localName = months[4];
                 break;
-            case "june":localName = months[5];
+            case "june":
+                localName = months[5];
                 break;
-            case "july":localName = months[6];
+            case "july":
+                localName = months[6];
                 break;
-            case "august":localName = months[7];
+            case "august":
+                localName = months[7];
                 break;
-            case "september":localName = months[8];
+            case "september":
+                localName = months[8];
                 break;
-            case "october":localName = months[9];
+            case "october":
+                localName = months[9];
                 break;
-            case "november":localName = months[10];
+            case "november":
+                localName = months[10];
                 break;
-            case "december":localName = months[11];
+            case "december":
+                localName = months[11];
                 break;
         }
         return localName;
@@ -268,6 +278,7 @@ public final class Utils {
 
     /**
      * Converts a drawable into a bitmap so it can be used in methods which require bitmap objects.
+     *
      * @param drawable The drawable to convert.
      * @return Bitmap object displaying the drawable.
      */
@@ -285,5 +296,26 @@ public final class Utils {
         return bitmap;
     }
 
-
+    public static Category getCategoryBySpinnerPos(int pos) {
+        switch (pos) {
+            case 2:
+                return Category.NONE;
+            case 3:
+                return Category.GROCERIES;
+            case 4:
+                return Category.HYGIENE_COSMETICS;
+            case 5:
+                return Category.LUXURY;
+            case 6:
+                return Category.GENERAL_ITEMS;
+            case 7:
+                return Category.HOBBY;
+            case 8:
+                return Category.WORK_EDUCATION;
+        }
+        return Category.NONE;
+    }
 }
+
+
+

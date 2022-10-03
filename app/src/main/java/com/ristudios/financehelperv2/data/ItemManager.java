@@ -18,13 +18,12 @@ public class ItemManager {
     private ItemManagerListener listener;
     private ArrayList<Item> items;
     private DatabaseExecutor databaseExecutor;
-    private ItemDatabaseHelper helper;
 
     public ItemManager (Context context, ItemManagerListener listener)
     {
         this.items = new ArrayList<>();
         this.listener = listener;
-        helper = new ItemDatabaseHelper(context);
+        ItemDatabaseHelper helper = new ItemDatabaseHelper(context);
         databaseExecutor = new DatabaseExecutor(helper);
     }
 
@@ -36,13 +35,13 @@ public class ItemManager {
     public void addItem(Item toAdd){
         items.add(toAdd);
         listener.onItemListUpdated();
-        databaseExecutor.databaseAdd(toAdd);
+        databaseExecutor.databaseItemsAdd(toAdd);
     }
 
     public void addItemAtPosition(Item toAdd, int pos){
         items.add(pos, toAdd);
         listener.onItemListUpdated();
-        databaseExecutor.databaseAdd(toAdd);
+        databaseExecutor.databaseItemsAdd(toAdd);
     }
 
     public void updateItem(Item toUpdate, Item updatedItem){
@@ -76,9 +75,9 @@ public class ItemManager {
 
     public void loadItemsForCurrentDate(){
         long [] searchMillis = Utils.getSearchTimesForCurrentDay();
-        databaseExecutor.databaseLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
+        databaseExecutor.databaseItemsLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.ItemDataLoadListener() {
             @Override
-            public void onDataLoaded(List<Item> loadedItems) {
+            public void onItemsLoaded(List<Item> loadedItems) {
                 items.clear();
                 items.addAll(loadedItems);
                 listener.onListLoaded();
@@ -88,9 +87,9 @@ public class ItemManager {
 
     public void loadItemsForDate(int year, int monthValue, int day){
         long[] searchMillis = Utils.getSearchTimesForDate(year, monthValue, day);
-        databaseExecutor.databaseLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
+        databaseExecutor.databaseItemsLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.ItemDataLoadListener() {
             @Override
-            public void onDataLoaded(List<Item> loadedItems) {
+            public void onItemsLoaded(List<Item> loadedItems) {
                 items.clear();
                 items.addAll(loadedItems);
                 listener.onListLoaded();
@@ -100,9 +99,9 @@ public class ItemManager {
 
     public void loadItemsForMonth(int year, int monthValue){
         long[] searchMillis = Utils.getSearchTimesForMonth(year, monthValue);
-        databaseExecutor.databaseLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.DataLoadListener() {
+        databaseExecutor.databaseItemsLoadForTime(searchMillis[0], searchMillis[1], new DatabaseExecutor.ItemDataLoadListener() {
             @Override
-            public void onDataLoaded(List<Item> loadedItems) {
+            public void onItemsLoaded(List<Item> loadedItems) {
                 items.clear();
                 items.addAll(loadedItems);
                 listener.onListLoaded();
@@ -132,7 +131,7 @@ public class ItemManager {
             }
         }
         if (match!=null){
-            databaseExecutor.databaseDelete(match);
+            databaseExecutor.databaseItemsDelete(match);
             items.remove(match);
             listener.onItemListUpdated();
         }

@@ -17,15 +17,21 @@ import org.jetbrains.annotations.NotNull;
 
 public class ItemViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView txtName, txtCount, txtPrice, txtPriceTotal, txtDate, txtTime;
-    private ConstraintLayout constraintLayout;
-    private Context context;
-    private ViewHolderClickListener listener;
+    private final TextView txtName, txtCategory;
+    private final TextView txtCount;
+    private final TextView txtPrice;
+    private final TextView txtPriceTotal;
+    private final TextView txtDate;
+    private final TextView txtTime;
+    private final ConstraintLayout constraintLayout;
+    private final Context context;
+    private final ViewHolderClickListener listener;
 
     public ItemViewHolder(@NonNull @NotNull View itemView, Context context, ViewHolderClickListener listener) {
         super(itemView);
         this.listener = listener;
         this.context = context;
+        txtCategory = itemView.findViewById(R.id.txt_item_layout_category);
         txtName = itemView.findViewById(R.id.txt_item_layout_name);
         txtCount = itemView.findViewById(R.id.txt_item_layout_count);
         txtPrice = itemView.findViewById(R.id.txt_item_layout_price);
@@ -37,6 +43,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
     public void bindView(Item item){
         txtName.setText(item.getName());
+        txtCategory.setText(item.getCategory().getLocalizedName(context));
         txtCount.setText( context.getResources().getString(R.string.multiply).replace("$COUNT", String.valueOf(item.getCount())));
         txtPrice.setText(context.getResources().getString(R.string.single_price).replace("$PRICE", String.valueOf(item.getPrice())));
         txtPriceTotal.setText(context.getResources().getString(R.string.total_price).replace("$TOTAL", String.valueOf(item.getPriceTotal())));
